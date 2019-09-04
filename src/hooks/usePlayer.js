@@ -15,10 +15,11 @@ export const usePlayer = () => {
             ...prev,
             pos: {
                 x: (prev.pos.x += x),
-                y: (prev.pos.y += y),
+                y: (prev.pos.y += y)
+            },
                 collided
             }
-        }))
+        ))
     }
 
     const resetPlayer = useCallback(() => {

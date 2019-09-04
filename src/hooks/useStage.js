@@ -11,8 +11,7 @@ export const useStage = (player, resetPlayer) => {
                 row.map(cell => (
                     cell[1] === 'clear' ? [0, 'clear'] : cell
                 ))
-            )
-            )
+            ));
 
             //draw tetromino
             player.tetriomino.forEach((row, y) => {
@@ -24,13 +23,18 @@ export const useStage = (player, resetPlayer) => {
                         ]
                     };
                 });
-            })
+            });
+            // check collision
+            if (player.collided){
+                resetPlayer();
+            }
+            
             return newStage;
         }
 
         setStage(prev => updateStage(prev))
 
-    }, [player])
+    }, [player,resetPlayer])
 
     return [stage, setStage];
 }
